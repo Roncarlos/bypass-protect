@@ -27,21 +27,30 @@
 
         document.body.style = "margin: 12.5% 45%;";
 
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        let div = document.createElement("div");
+
+        div.style = "position: fixed; inset: 0px; z-index: 2147483647; background: black; height: " + height + "px; width: " + width + "px;";
+
         // Add all links as a element to the window
         for (const link of links) {
             var a = document.createElement("a");
             a.href = link;
             a.innerHTML = link;
             a.target = "_blank";
-            document.body.appendChild(a);
+            div.appendChild(a);
             // center the link
             a.style.margin = "auto";
 
             // add a line break
             var br = document.createElement("br");
-            document.body.appendChild(br);
+            div.appendChild(br);
 
         }
+
+        document.body.appendChild(div);
 
     }
 })();
